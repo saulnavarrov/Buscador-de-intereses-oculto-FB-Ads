@@ -3,6 +3,9 @@ Con esto lograras visualizar los intereses de formas mas organizada y limpia.
 Me gusta como quedo, se ve extremadamente limpio y entendible, aparte de eso puedes usar otros idiomas en casó de que quieras buscar en ingles o español.
 Tiene un maximo de busqueda de 5000 resultados para los mas extremos
 
+![image](https://user-images.githubusercontent.com/7226470/144542899-694d3691-aa39-4bfb-b7fd-be3952eb5bc7.png)
+
+
 Las instrucciones mas abajo ⏬
 
 
