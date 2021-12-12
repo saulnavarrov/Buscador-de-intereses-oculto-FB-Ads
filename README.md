@@ -3,7 +3,7 @@ Con esto lograras visualizar los intereses de formas mas organizada y limpia.
 Me gusta como quedo, se ve extremadamente limpio y entendible, aparte de eso puedes usar otros idiomas en casó de que quieras buscar en ingles o español.
 Tiene un maximo de busqueda de 5000 resultados para los mas extremos
 
-![image](https://user-images.githubusercontent.com/7226470/144542899-694d3691-aa39-4bfb-b7fd-be3952eb5bc7.png)
+![image](https://user-images.githubusercontent.com/7226470/145696860-9620c0b8-dbd1-4e22-aeba-6d7eaf39736b.png)
 
 
 Las instrucciones mas abajo ⏬
@@ -32,11 +32,14 @@ Organizado así
 5. Disfruta del resultado.
   
 
-![image](https://user-images.githubusercontent.com/7226470/144537995-7d3384f3-fcc2-4ca2-935f-4f8c5397e18c.png)
+![image](https://user-images.githubusercontent.com/7226470/145696880-b112dc63-da73-4d0c-a9b8-dd72ff5d75ca.png)
 
 
-## El resultado de la busqueda habla por si solo.
+## El resultado de la busqueda habla por si solo 😊😊😊
 
+---
+### Se agregaron errores a los campos para una mejor visualización
+![image](https://user-images.githubusercontent.com/7226470/145696891-15a01832-085d-4cd5-8d2d-0f1505e64294.png)
 
 
 
@@ -44,5 +47,5 @@ Organizado así
 le ire metiendo más codigo mas adelante para organizarlo,
 
 
-# Creado por @SaulNavarrov para la comunidad con mucho ♥
+### Creado por @SaulNavarrov para la comunidad con mucho ♥
 
