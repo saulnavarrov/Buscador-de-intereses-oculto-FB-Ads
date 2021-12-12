@@ -13,39 +13,54 @@
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand">🔎 Buscador de Intereses</a>
-
-            <form class="d-flex" onsubmit="return false">
-                <select class="form-select" aria-label="50" id="limit">
-                    <option value="50" selected>50</option>
-                    <option value="100">100</option>
-                    <option value="250">250</option>
-                    <option value="500">500</option>
-                    <option value="1000">1000</option>
-                    <option value="2500">2500</option>
-                    <option value="+5000">+5000</option>
-                </select>_
-                <select class="form-select" aria-label="es_CO" id="searchIdioma">
-                    <option value="es_CO" selected>es_CO</option>
-                    <option value="es_US">es_US</option>
-                    <option value="en_US">en_US</option>
-                    <option value="es_ES">es_ES</option>
-                    <option value="es_PA">es_PA</option>
-                </select>_ 
-                <input class="form-control form-x me-2" type="text" placeholder="Interes que buscas" aria-label="Search" onkeydown="searchKey()" id="txtSearchs">
-                <button class="btn btn-outline-success" type="button" id="buscarInteres">Search</button>
-            </form>
         </div>
     </nav>
 
     <br>
-    <div class="container">
-        <section class="row">
-            <div class="col" id="liveAlertPlaceholder"></div>
-        </section>
-    </div>
     <div class="container" style="padding: 25px 0px">
         <section class="row-xl">
-            <input class="form-control" type="search" placeholder="Token Api" aria-label="api" id="tokenApiFb" onkeydown="searchKey()">
+            <label for="tokenApiFb" style="width: 100%;text-align: center;">Token de la Api de Facebook 👇</label>
+            <input class="form-control" type="search" placeholder="Token Api" aria-label="api" id="tokenApiFb" onkeydown="searchKey()" style="width: 100%;text-align: center;" required>
+            <div class="invalid-feedback" style="width: 100%;text-align: center;">Falta el CODIGO TOKEN aquí ☝ [Genere uno nuevo e intentelo de nuevo] <a href="https://developers.facebook.com/tools/explorer" target="_blank">Generar Token Nuevo</a></div>
+        </section>
+    </div>
+    <div class="container" style="padding: 0px 0px 25px 0px;">
+        <section class="row-xl">
+            <div class="col-12">
+                <form class="d-flex" onsubmit="return false">
+                    <div class="col-12 col-md-9">
+                        <label for="txtSearchs" style="width: 100%;text-align: center;">¿Qué Interes buscas?</label>
+                        <input class="form-control form-x me-2" type="text" placeholder="Interes que buscas" aria-label="Search" onkeydown="searchKey()" id="txtSearchs" style="width: 100%;text-align: center;" required>
+                        <div class="invalid-feedback" style="width: 100%;text-align: center;">Ingrese el interes que desea buscar aquí ☝</div>
+                    </div>
+                    <div class="col-1">
+                        <label for="limit" style="width: 100%;text-align: center;">Limite:</label>
+                        <select class="form-select" aria-label="50" id="limit" style="text-align: center;">
+                            <option value="50" selected>50</option>
+                            <option value="100">100</option>
+                            <option value="250">250</option>
+                            <option value="500">500</option>
+                            <option value="1000">1000</option>
+                            <option value="2500">2500</option>
+                            <option value="+5000">+5000</option>
+                        </select>
+                    </div>
+                    <div class="col-1">
+                        <label for="searchIdioma" style="width: 100%;text-align: center;">Idioma:</label>
+                        <select class="form-select" aria-label="es_CO" id="searchIdioma" style="text-align: center;">
+                            <option value="es_CO" selected>es_CO</option>
+                            <option value="es_US">es_US</option>
+                            <option value="en_US">en_US</option>
+                            <option value="es_ES">es_ES</option>
+                            <option value="es_PA">es_PA</option>
+                        </select>
+                    </div>
+                    <div class="col-1">
+                        <label for="buscarInteres" style="width: 100%;text-align: center;"> </label>
+                        <button class="btn btn-outline-success" type="button" id="buscarInteres" style="text-align: center;">Search</button>
+                    </div>                    
+                </form>
+            </div>
         </section>
     </div>
     <div class="container">
@@ -68,8 +83,18 @@
         </section>
     </div>
 
+    <footer class="" style=" position: relative; bottom: 0px; max-width: 100%; width: 100%; padding-top: 30px;">
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2020 Copyright:
+            <a class="text-dark" href="https://SimbiosisDigital.com/saul/?ref=footer-Buscador-Intereses">Saúl Navarrov</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.0/dist/sweetalert2.all.min.js" integrity="sha256-nk6ExuG7ckFYKC1p3efjdB14TU+pnGwTra1Fnm6FvZ0=" crossorigin="anonymous"></script>
 
     <script>
         let btnBuscarI = $('#buscarInteres');
@@ -80,7 +105,9 @@
         btnBuscarI.click(buscar);
 
         if(saveToken === null) {
-            alertPlaceHolder('danger', 'Falta el token para realizar la consulta. link: <a href="https://developers.facebook.com/tools/explorer" target="_blank">Generar Token</a>')
+            let tkn = $('#tokenApiFb');
+            alertPlaceHolder('error', 'Ingrese el Token de la Api de Facebook para realizar la busqueda [<a href="https://developers.facebook.com/tools/explorer" target="_blank">Generar Token API Facebook</a>]');
+            tkn.addClass('is-invalid');
         }else{
             $('#tokenApiFb').val(saveToken);
         }
@@ -88,7 +115,7 @@
         if(ultimaBusqueda !== null) {
             $('#txtSearchs').val(ultimaBusqueda);
         }else{
-            localStorage.setItem('BuscandoTxt', null);
+            localStorage.setItem('BuscandoTxt');
         }
 
         function searchKey(e){
@@ -100,15 +127,28 @@
         }
 
         function buscar(e, txtBuscar){
-            let busqueda = $('#txtSearchs').val();
-            let token = $('#tokenApiFb').val();
+            let busqueda = $('#txtSearchs');
+            let token = $('#tokenApiFb');
             let limit = $('#limit').val();
             let idioma = $('#searchIdioma').val();
 
-            let urlApi = `https://graph.facebook.com/search?type=adinterest&q=[${busqueda}]&limit=${Number(limit)}&locale=${idioma}&access_token=${token}`;
-            fetch(urlApi)
-                .then(response => response.json())
-                .then(json => responseOk(json))
+            if (/^\s*$/.test(busqueda.val())) {
+                alertPlaceHolder('question', 'Ingrese un interes que desea buscar en la caja de busqueda');
+                busqueda.addClass('is-invalid');
+            }
+            
+            if (/^\s*$/.test(token.val())) {
+                alertPlaceHolder('error', 'Ingrese el Token de la Api de Facebook para realizar la busqueda [<a href="https://developers.facebook.com/tools/explorer" target="_blank">Generar Token API Facebook</a>]');
+                token.addClass('is-invalid');
+            }else{
+                busqueda.removeClass('is-invalid');
+                token.removeClass('is-invalid');
+                let urlApi = `https://graph.facebook.com/search?type=adinterest&q=[${busqueda.val()}]&limit=${Number(limit)}&locale=${idioma}&access_token=${token.val()}`;
+                fetch(urlApi)
+                    .then(response => response.json())
+                    .then(json => responseOk(json))
+            }
+
         }
 
         function responseOk(rsp){
@@ -125,9 +165,11 @@
             // Limpiando Tabla
             $('#contentResultados')[0].innerHTML = "";
 
-            // Alert 
-            closeAlert('info', 0);
-            alertPlaceHolder('info', `Buscando: ${localStorage.getItem('BuscandoTxt')} -> Cantidad de  Resultados: ${rsp.data.length}`)
+            if(!rsp.data.length) {
+                alertPlaceHolder('question', `No hay resultados para la Busqueda: "${localStorage.getItem('BuscandoTxt')}"`);
+            }else {
+                alertPlaceHolder('success', `${rsp.data.length} Resultados para la palabra: "${localStorage.getItem('BuscandoTxt')}"`);
+            }
 
             // Enviando
             rsp.data.forEach((el,idx) => {
@@ -135,15 +177,7 @@
             })
         }
 
-        function closeAlert(alert,cant) {
-            let alertHtml = $(`.alert-${alert}`);
-            let alertPlaceholder = $('#liveAlertPlaceholder')[0];
-            
-            if (alertHtml.length > cant) {
-                alertPlaceholder.innerHTML ="";
-            }
-            return false;
-        }
+        
 
         function printTableResult(idx, data) {
             let idioma = $('#searchIdioma').val();
@@ -165,19 +199,26 @@
 
         function errorJson(err){
             // alert(`Error en la consulta: ${err.error.message}`);
-            closeAlert('danger',2);
-            alertPlaceHolder('danger', `${err.error.message} -><a href="https://developers.facebook.com/tools/explorer" target="_blank">Generar Nuevo Token</a>`);
+            alertPlaceHolder('error', `${err.error.message} -><a href="https://developers.facebook.com/tools/explorer" target="_blank">Generar Nuevo Token</a>`);
         }
 
         function alertPlaceHolder(t, m){
-            let alertPlaceholder = $('#liveAlertPlaceholder');
-            let wrapper = document.createElement('div');
-            let message = m;
-            let type = t;
-
-            wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+            let title = '';
+            switch (t) {
+                case 'success':
+                    title = 'Ha salido todo bien 😊';
+                    break;
+                case 'error':
+                    title = 'Ocurrio un Error 😭';
+                    break;
+                case 'question':
+                    title = 'Mmm... 🤔';
+                    break
+                default:
+                    break;
+            }
             
-            alertPlaceholder.append(wrapper)
+            Swal.fire(title, m, t);
         }
         
     </script>
